@@ -2,7 +2,7 @@
 
 wget -O- get.docker.com | bash
 
-sudo apt-get install -y uidmap xautomation
+sudo apt-get install -y uidmap xautomation unclutter
 
 dockerd-rootless-setuptool.sh install
 
