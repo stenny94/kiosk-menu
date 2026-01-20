@@ -1,2 +1,2 @@
-# kiosk-test
-kiosk-test
+# kiosk-menu
+kiosk-menu
