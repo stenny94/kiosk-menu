@@ -9,5 +9,7 @@ git clone https://github.com/stenny94/kiosk-menu.git html
 
 cd html
 sed -i "s/*LOCATION/${LOCATION:-clay}/g" index.html
+sed -i "s/*FILETYPE/${FILETYPE:-image}/g" index.html
 
 nginx -g "daemon off;"
+
