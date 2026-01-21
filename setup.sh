@@ -12,6 +12,4 @@ echo "--------------------------------------------------"
 echo ""
 echo ""
 
-
-
 docker run -d -p 8080:80 --name kiosk-menu --restart=always -e LOCATION="$STORELOCATION" stenny94/kiosk-menu:latest
