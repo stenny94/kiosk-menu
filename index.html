@@ -26,52 +26,7 @@
 </head>
 <body>
 
-    <div id="media-container">
-        </div>
-
-    <script>
-        /** * CONFIGURATION
-         * Replace these placeholders with your actual variables or logic
-         */
-        const LOCATION = "*LOCATION"; 
-        const FILETYPE = "*FILETYPE"; // Expecting ".png" or ".avi" (including the dot)
-        
-        const fileUrl = `https://nginx.brodystenfors.cloud/Code/share/${LOCATION}/menu${FILETYPE}`;
-        const container = document.getElementById('media-container');
-
-        // Normalize filetype to lowercase to prevent casing errors
-        const extension = FILETYPE.toLowerCase();
-
-        if (extension === '.png') {
-            // Logic for Image
-            const img = document.createElement('img');
-            img.src = fileUrl;
-            img.alt = "Menu Image";
-            container.appendChild(img);
-        } 
-        else if (extension === '.avi' || extension === '.mp4') {
-            // Logic for Video
-            const video = document.createElement('video');
-            video.autoplay = true;
-            video.muted = true;
-            video.loop = true;
-            video.playsInline = true; // Better compatibility for mobile/tablets
-            
-            const source = document.createElement('source');
-            source.src = fileUrl;
-            
-            // Map extensions to correct MIME types
-            if (extension === '.avi') {
-                source.type = "video/x-msvideo";
-            } else {
-                source.type = "video/mp4";
-            }
-            
-            video.appendChild(source);
-            container.appendChild(video);
-        } else {
-            console.error("Unsupported file type: " + FILETYPE);
-        }
-    </script>
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg"></img>
+    
 </body>
 </html>
