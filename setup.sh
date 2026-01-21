@@ -12,7 +12,23 @@ echo "--------------------------------------------------"
 echo ""
 echo ""
 echo "--------------------------------------------------"
-read -p "Please enter your the type of file needed (e.g., image, video) " FILETYPE < /dev/tty
+read -p "Please enter the type of file needed (image or video): " USER_INPUT < /dev/tty
+
+# Convert input to the desired extension
+case "$USER_INPUT" in
+  video)
+    FILETYPE=".avi"
+    ;;
+  image)
+    FILETYPE=".png"
+    ;;
+  *)
+    # Fallback if they type something else or leave it blank
+    echo "Invalid input detected. Defaulting to .png"
+    FILETYPE=".png"
+    ;;
+esac
+
 echo "Setting filetype to: $FILETYPE"
 echo "--------------------------------------------------"
 echo ""
