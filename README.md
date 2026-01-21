@@ -15,7 +15,7 @@ And... that's it. I probably put way too much work into this, but that's okay.
 #### Personal Resources/Notes
 Use the following command to build the Docker image.
 
-    docker build -t kiosk-menu .
+    docker build -t stenny94/kiosk-menu .
 
 And use this command to push to the repository.
 
