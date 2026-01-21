@@ -1,9 +1,13 @@
 # kiosk-menu
-### 1. Install Docker and the Webserver
+### 1. Install Docker and Dependancies
+
+    wget -O- https://raw.githubusercontent.com/stenny94/kiosk-menu/refs/heads/main/docker.sh | bash
+
+### 2. Container Setup
 
     wget -O- https://raw.githubusercontent.com/stenny94/kiosk-menu/refs/heads/main/setup.sh | bash
 
-### 2. Add to Startup (or Autostart)
+### 3. Add to Startup (or Autostart)
 Create an autostart/startup link to the file at the root directory called 'startup.sh', it is the file that will launch Firefox in kiosk mode at the menu server.
 
 ---
