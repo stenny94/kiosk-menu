@@ -19,9 +19,20 @@
             display: block;
             object-fit: cover; 
         }
+
+        video {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+            object-fit: cover; 
+        }
     </style>
 </head>
 <body>
-    <img src="*LOCATION/menu.png" alt="Menu Image">
+    <img src="*LOCATION/menu.*FILETYPE" alt="Menu Image">
+    <video autoplay muted>
+      <source src="*LOCATION/menu.*FILETYPE" type="video/avi">
+      Your browser does not support the video tag.
+    </video>
 </body>
 </html>
