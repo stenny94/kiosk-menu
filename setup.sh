@@ -10,4 +10,6 @@ sudo wget -O /startup.sh https://raw.githubusercontent.com/stenny94/kiosk-menu/r
 
 sudo chmod a+x /startup.sh
 
-docker run -d -p 8080:80 --name kiosk-menu --restart=always stenny94/kiosk-menu:latest
+read -p "Please enter your store location in all lowercase and replace spaces with '_' (clay, beloit, st_marys, etc.): " STORELOCATION
+
+docker run -d -p 8080:80 --name kiosk-menu --restart=always -e LOCATION="$STORELOCATION" stenny94/kiosk-menu:latest
