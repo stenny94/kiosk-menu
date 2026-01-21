@@ -11,5 +11,3 @@ cd html
 sed -i "s/*LOCATION/${LOCATION:-clay}/g" index.html
 
 nginx -g "daemon off;"
-
-
