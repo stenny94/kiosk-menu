@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>kiosk-menu</title>
     <style>
+        /* Ensure the media fills the entire screen without scrollbars */
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             width: 100%;
             overflow: hidden;
+            background-color: black; /* Prevents white flash during load */
         }
 
-        img {
-            width: 100vw;
-            height: 100vh;
-            display: block;
-            object-fit: cover; 
-        }
-
-        video {
+        #media-container img, 
+        #media-container video {
             width: 100vw;
             height: 100vh;
             display: block;
@@ -29,10 +25,53 @@
     </style>
 </head>
 <body>
-    <img src="https://nginx.brodystenfors.cloud/Code/share/*LOCATION/menu*FILETYPE" alt="Menu Image">
-    <video autoplay muted>
-      <source src="https://nginx.brodystenfors.cloud/Code/share/*LOCATION/menu*FILETYPE" type="video/avi">
-      Your browser does not support the video tag.
-    </video>
+
+    <div id="media-container">
+        </div>
+
+    <script>
+        /** * CONFIGURATION
+         * Replace these placeholders with your actual variables or logic
+         */
+        const LOCATION = "*LOCATION"; 
+        const FILETYPE = "*FILETYPE"; // Expecting ".png" or ".avi" (including the dot)
+        
+        const fileUrl = `https://nginx.brodystenfors.cloud/Code/share/${LOCATION}/menu${FILETYPE}`;
+        const container = document.getElementById('media-container');
+
+        // Normalize filetype to lowercase to prevent casing errors
+        const extension = FILETYPE.toLowerCase();
+
+        if (extension === '.png') {
+            // Logic for Image
+            const img = document.createElement('img');
+            img.src = fileUrl;
+            img.alt = "Menu Image";
+            container.appendChild(img);
+        } 
+        else if (extension === '.avi' || extension === '.mp4') {
+            // Logic for Video
+            const video = document.createElement('video');
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true; // Better compatibility for mobile/tablets
+            
+            const source = document.createElement('source');
+            source.src = fileUrl;
+            
+            // Map extensions to correct MIME types
+            if (extension === '.avi') {
+                source.type = "video/x-msvideo";
+            } else {
+                source.type = "video/mp4";
+            }
+            
+            video.appendChild(source);
+            container.appendChild(video);
+        } else {
+            console.error("Unsupported file type: " + FILETYPE);
+        }
+    </script>
 </body>
 </html>
